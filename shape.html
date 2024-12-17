@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Shape Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>3D Shape Calculator</h1>
+        <div class="shapes-grid">
+            <!-- Cube -->
+            <div class="shape-card">
+                <img src="cube.png" alt="Cube">
+                <h2>Cube</h2>
+                <p class="formula">V = s³, SA = 6s²</p>
+                <input type="number" placeholder="Side length (s)" class="cube-side">
+                <button onclick="calculateCube()">Calculate</button>
+                <div class="result" id="cube-result"></div>
+            </div>
+
+            <!-- Cuboid -->
+            <div class="shape-card">
+                <img src="cuboid.svg" alt="Cuboid">
+                <h2>Cuboid</h2>
+                <p class="formula">V = l×w×h, SA = 2(lw + lh + wh)</p>
+                <input type="number" placeholder="Length (l)" class="cuboid-length">
+                <input type="number" placeholder="Width (w)" class="cuboid-width">
+                <input type="number" placeholder="Height (h)" class="cuboid-height">
+                <button onclick="calculateCuboid()">Calculate</button>
+                <div class="result" id="cuboid-result"></div>
+            </div>
+
+            <!-- Sphere -->
+            <div class="shape-card">
+                <img src="Sphere.png" alt="Sphere">
+                <h2>Sphere</h2>
+                <p class="formula">V = 4/3πr³, SA = 4πr²</p>
+                <input type="number" placeholder="Radius (r)" class="sphere-radius">
+                <button onclick="calculateSphere()">Calculate</button>
+                <div class="result" id="sphere-result"></div>
+            </div>
+
+            <!-- Cylinder -->
+            <div class="shape-card">
+                <img src="cylinder.svg" alt="Cylinder">
+                <h2>Cylinder</h2>
+                <p class="formula">V = πr²h, SA = 2πr(r + h)</p>
+                <input type="number" placeholder="Radius (r)" class="cylinder-radius">
+                <input type="number" placeholder="Height (h)" class="cylinder-height">
+                <button onclick="calculateCylinder()">Calculate</button>
+                <div class="result" id="cylinder-result"></div>
+            </div>
+
+            <!-- Cone -->
+            <div class="shape-card">
+                <img src="cone.svg" alt="Cone">
+                <h2>Cone</h2>
+                <p class="formula">V = 1/3πr²h, SA = πr(r + √(r² + h²))</p>
+                <input type="number" placeholder="Radius (r)" class="cone-radius">
+                <input type="number" placeholder="Height (h)" class="cone-height">
+                <button onclick="calculateCone()">Calculate</button>
+                <div class="result" id="cone-result"></div>
+            </div>
+
+            <!-- Pyramid -->
+            <div class="shape-card">
+                <img src="pyramid.svg" alt="Pyramid">
+                <h2>Square Pyramid</h2>
+                <p class="formula">V = 1/3b²h, SA = b² + 2bl</p>
+                <input type="number" placeholder="Base length (b)" class="pyramid-base">
+                <input type="number" placeholder="Height (h)" class="pyramid-height">
+                <button onclick="calculatePyramid()">Calculate</button>
+                <div class="result" id="pyramid-result"></div>
+            </div>
+
+            <!-- Triangular Prism -->
+            <div class="shape-card">
+                <img src="triangular_prism.ico" alt="Triangular Prism">
+                <h2>Triangular Prism</h2>
+                <p class="formula">V = 1/2×b×h×l, SA = bh + 3bl</p>
+                <input type="number" placeholder="Base (b)" class="prism-base">
+                <input type="number" placeholder="Height (h)" class="prism-height">
+                <input type="number" placeholder="Length (l)" class="prism-length">
+                <button onclick="calculatePrism()">Calculate</button>
+                <div class="result" id="prism-result"></div>
+            </div>
+
+            <!-- Torus -->
+            <div class="shape-card">
+                <img src="torus.ico" alt="Torus">
+                <h2>Torus</h2>
+                <p class="formula">V = 2π²Rr², SA = 4π²Rr</p>
+                <input type="number" placeholder="Major radius (R)" class="torus-major">
+                <input type="number" placeholder="Minor radius (r)" class="torus-minor">
+                <button onclick="calculateTorus()">Calculate</button>
+                <div class="result" id="torus-result"></div>
+            </div>
+
+            <!-- Hemisphere -->
+            <div class="shape-card">
+                <img src="hemisphere.ico" alt="Hemisphere">
+                <h2>Hemisphere</h2>
+                <p class="formula">V = 2/3πr³, SA = 3πr²</p>
+                <input type="number" placeholder="Radius (r)" class="hemisphere-radius">
+                <button onclick="calculateHemisphere()">Calculate</button>
+                <div class="result" id="hemisphere-result"></div>
+            </div>
+        </div>
+    </div>
+    <script src="shape.js"></script>
+</body>
+</html>
