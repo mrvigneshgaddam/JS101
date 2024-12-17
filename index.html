@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index Page</title>
+    <style>
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9; 
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; 
+        }
+
+        .container {
+            background-color: #fff; 
+            width: 350px;
+            padding: 20px 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); 
+            text-align: center;
+        }
+
+        .container h1 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        
+        .container button {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s ease, background-color 0.3s ease;
+        }
+
+        
+        .task1 {
+            background-color: #007bff; 
+            color: #fff;
+        }
+
+        .task1:hover {
+            background-color: #0056b3; 
+            transform: scale(1.05); 
+        }
+
+        
+        .task2 {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        .task2:hover {
+            background-color: #0056b3; 
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Task</h1>
+        <button class="task1" onclick="location.href='resume.html'">Task 1</button>
+        <button class="task2" onclick="location.href='feed_back.html'">Task 2</button>
+    </div>
+</body>
+</html>

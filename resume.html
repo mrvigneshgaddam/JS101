@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0; /* Light gray background */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background-color: #fff; /* White background like a Word page */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+            padding: 20px 40px;
+            border-radius: 8px; /* Slightly rounded corners */
+            width: 800px; /* Width to resemble a page */
+            margin: 20px auto;
+        }
+        
+        table {
+            width: 80%;
+            margin: 0 auto;
+            border-collapse: collapse;
+        }
+
+        table, th, td {
+            border: 1px solid #333;
+            padding: 8px;
+            text-align: center;
+        }
+        #myH1 {
+            text-align: center;
+            font-size: 24px;
+        }
+        #img {
+            height: 50px;
+            width: 50px;
+            padding: 5px;
+        }
+
+        #sc {
+            display: flex;
+            justify-content: center; 
+            align-items: center;   
+            flex-wrap: wrap;   
+            gap: 10px;            
+            margin: 20px 0;          
+        }
+
+        
+
+    </style>
+</head>
+<body>
+    <div class="container">
+    <h1 id = "myH1"></h1>
+    <section>
+        <div id="sc">
+            <a href="https://github.com/mrvigneshgaddam">
+                <img id="img" src="git.webp" alt="">
+            </a>
+            <a href="https://www.linkedin.com/in/vignesh-gaddam/">
+                <img id="img" src="linkdin.webp" alt="">
+            </a>
+            
+            <a href="mailto:vigneshgaddam100@gmail.com">
+                <img id ="img" src="mail.webp" alt="">
+            </a>
+            
+        </div>
+    </section>
+    <h2>Skills</h2>
+    <hr>
+
+    <ul>
+        <li id="sk1"> </li>  <!-- Programming languages -->
+        <li id = "sk2"></li> <!-- Web Development-->
+        <li id = "sk3"></li> <!-- APP Development -->
+        <li id = "sk4"></li> <!-- DataBases -->
+        <li id = "sk5"></li> <!-- Tools and Platform -->
+        <li id = "sk6"></li>
+        <li id = "sk7"></li> 
+        <li id = "sk8"></li>
+    </ul>
+    <br>
+    <h2 >Education</h2>
+    <hr>
+    <table border="1" id = "table">
+        <tr>
+            <th>Sr No.</th>
+            <th>School/College Name</th>
+            <th>Qualification</th>
+            <th>Year</th>
+            <th>Grade</th>
+        </tr>
+        <tr>
+            <td id="ed1"></td>
+            <td id="ed2"></td>
+            <td id="ed3"></td>
+            <td id="ed4"></td>
+            <td id="ed5"></td>
+        </tr>
+        <tr>
+            <td id="e1"></td>
+            <td id="e2"></td>
+            <td id="e3"></td>
+            <td id="e4"></td>
+            <td id="e5"></td>
+        </tr>
+    </table>
+
+    <br>
+    <h2>Certification</h2>
+    <hr>
+    <ul>
+        <li id="c1"></li>
+        <li id="c2"></li>
+        <li id="c3"></li>
+    </ul>
+    <br>
+    <h2>Projects</h2>
+    <hr>
+    <h3> Expense Tracker Application</h3>
+    <ul>
+        <li>Tech Stack: React, Java Spring Boot, MySQL</li>
+        <li>Description: A tool to track daily income and expenses.</li>
+    </ul>
+</div>
+
+
+    <script src="stlye.js"></script>
+</body>
+</html>

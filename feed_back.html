@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback Form</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9; /* Light gray-blue background */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* Centers content vertically */
+        }
+
+        /* Container Styling */
+        .container {
+            background-color: #fff; /* White form background */
+            width: 400px;
+            padding: 20px 30px;
+            border-radius: 10px; /* Rounded corners */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+        }
+
+        h1 {
+            text-align: center;
+            color: #333; /* Dark text color */
+            margin-bottom: 20px;
+        }
+
+        /* Label Styling */
+        label {
+            font-weight: bold;
+            color: #555;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        /* Input and Select Styling */
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box; /* Prevent padding overflow */
+            font-size: 14px;
+        }
+
+        input:focus, select:focus {
+            border-color: #007bff; /* Blue border on focus */
+            outline: none;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+        }
+
+        /* Button Styling */
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff; /* Blue color */
+            border: none;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Feedback Form</h1>
+        <section>
+            <form>
+                <label for="name">Name:</label>
+                <input type="text" id="name" placeholder="Enter your name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" placeholder="Enter your email" required>
+
+                <label for="division">Division:</label>
+                <select name="division" id="division" required>
+                    <option value="">Select Division</option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                </select>
+
+                <label for="feedback">Feedback:</label>
+                <textarea id="feedback" rows="4" placeholder="Enter your feedback" required style="width: 100%; padding: 8px; border-radius: 5px; border: 1px solid #ccc; font-size: 14px;"></textarea>
+
+
+                <button id="submit" type= "submit" onclick="input(); return false;">Submit</button>
+
+                <h5 id="myP" style="text-align: center;"></h5>
+            </form>
+        </section>
+    </div>
+    <script src="F_B.js"></script>
+</body>
+</html>
