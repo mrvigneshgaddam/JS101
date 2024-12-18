@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Converter</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <style>
+        /* Reset some basic styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #e9ecef;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .convert {
+            background: white;
+            padding: 40px 50px;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 350px;
+        }
+
+        h1 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #007bff;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 15px;
+            font-size: 18px;
+            color: #555;
+        }
+
+        input[type="text"],
+        select {
+            width: calc(100% - 20px);
+            padding: 10px 12px;
+            margin-top: 5px;
+            color: black;
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 12px 25px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background 0.3s ease, transform 0.2s ease;
+            margin-top: 15px;
+        }
+
+        button:hover {
+            background: #0056b3;
+            transform: scale(1.05);
+        }
+
+        .result {
+            font-size: 20px;
+            font-weight: bold;
+            color: #333;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="convert">
+        <h1 id="header">Converter</h1>
+        <label for="text">Enter:
+            <input type="text" id="val" placeholder="Enter your value"></label>
+        <label for="division">Convert:
+            <select id="division">
+                <option value="">--Select Format--</option>
+                <option value="cel">Celsius to Fahrenheit</option>
+                <option value="fah">Fahrenheit to Celsius</option>
+                <option value="rupee">Dollar to Rupee</option>
+                <option value="dollar">Rupee to Dollar</option>
+            </select></label>
+        <button class="btn" type="button" onclick="converter()">Convert</button>
+        <p>Result: <span class="result" id="Result"></span></p>
+    </div>
+
+    <script src="convertor.js"></script>
+
+</body>
+
+</html>
