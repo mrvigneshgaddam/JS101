@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Password Generator</title>
+    <link rel="stylesheet" href="pass.css">
+</head>
+<body>
+    <div class="container">
+        <div class="password-generator">
+            <h1>Password Generator</h1>
+            <div class="result-container">
+                <div id="result" class="result">Your password will appear here</div>
+                <button id="copyBtn" class="copy-btn" aria-label="Copy password">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <div class="settings">
+                <div class="setting">
+                    <label for="limit">Password Length</label>
+                    <input type="number" id="limit" min="4" max="50" value="12">
+                </div>
+
+                <div class="setting">
+                    <label>Character Types</label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="up" checked>
+                            <label for="up">Uppercase</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="low" checked>
+                            <label for="low">Lowercase</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="num" checked>
+                            <label for="num">Numbers</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="spe" checked>
+                            <label for="spe">Symbols</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button class="generate-btn" id="generateBtn">
+                Generate Password
+            </button>
+        </div>
+    </div>
+    <script src="pass.js"></script>
+</body>
+</html>
