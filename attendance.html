@@ -6,7 +6,78 @@
     <title>Teachable Machine - User Verification</title>
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
-    <link rel="stylesheet" href="styles.css">
+    
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background: #f4f4f9;
+        color: #333;
+    }
+    
+    header {
+        text-align: center;
+        padding: 20px;
+        background: #6200ea;
+        color: white;
+        width: 100%;
+    }
+    
+    header h1 {
+        margin: 0;
+        font-size: 2rem;
+    }
+    
+    main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+    }
+    
+    #start-button,
+    #restart-button {
+        padding: 10px 20px;
+        font-size: 1rem;
+        background: #03dac5;
+        border: none;
+        color: white;
+        cursor: pointer;
+        margin-bottom: 20px;
+        border-radius: 5px;
+    }
+    
+    #start-button:hover,
+    #restart-button:hover {
+        background: #018786;
+    }
+    
+    #webcam-container {
+        margin: 20px 0;
+    }
+    
+    #label-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    #verification-message {
+        font-weight: bold;
+    }
+    
+    #snapshot-container {
+        text-align: center;
+    }
+    
+    #snapshot {
+        margin-top: 10px;
+    }
+    </style>
 </head>
 <body>
     <header>
@@ -25,10 +96,6 @@
         </div>
         <button type="button" id="restart-button" style="display: none;" onclick="resetPage()">Restart Verification</button>
     </main>
-
-    <footer>
-        <p>Powered by Teachable Machine and TensorFlow.js</p>
-    </footer>
 
     <script>
         const URL = "https://teachablemachine.withgoogle.com/models/pr1wRDFT5/";
@@ -134,83 +201,3 @@
 </body>
 </html>
 
-<style>
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background: #f4f4f9;
-    color: #333;
-}
-
-header {
-    text-align: center;
-    padding: 20px;
-    background: #6200ea;
-    color: white;
-    width: 100%;
-}
-
-header h1 {
-    margin: 0;
-    font-size: 2rem;
-}
-
-main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-}
-
-#start-button,
-#restart-button {
-    padding: 10px 20px;
-    font-size: 1rem;
-    background: #03dac5;
-    border: none;
-    color: white;
-    cursor: pointer;
-    margin-bottom: 20px;
-    border-radius: 5px;
-}
-
-#start-button:hover,
-#restart-button:hover {
-    background: #018786;
-}
-
-#webcam-container {
-    margin: 20px 0;
-}
-
-#label-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-footer {
-    margin-top: auto;
-    padding: 10px;
-    background: #333;
-    color: white;
-    text-align: center;
-    width: 100%;
-}
-
-#verification-message {
-    font-weight: bold;
-}
-
-#snapshot-container {
-    text-align: center;
-}
-
-#snapshot {
-    margin-top: 10px;
-}
-</style>
