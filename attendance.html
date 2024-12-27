@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teachable Machine - User Verification</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>User Verification Portal</h1>
+        <p>Identify yourself using our AI-powered system.</p>
+    </header>
+
+    <main>
+        <button type="button" id="start-button" onclick="startVerification()">Start Verification</button>
+        <div id="webcam-container" style="display: none;"></div>
+        <div id="label-container" style="display: none;"></div>
+        <p id="verification-message" style="display: none; font-size: 1.2rem; color: #6200ea; margin-top: 20px;"></p>
+        <div id="snapshot-container" style="display: none; margin-top: 20px;">
+            <p id="snapshot-message"></p>
+            <canvas id="snapshot" style="border: 1px solid #ccc;"></canvas>
+        </div>
+        <button type="button" id="restart-button" style="display: none;" onclick="resetPage()">Restart Verification</button>
+    </main>
+
+    <footer>
+        <p>Powered by Teachable Machine and TensorFlow.js</p>
+    </footer>
+
+    <script>
+        const URL = "https://teachablemachine.withgoogle.com/models/pr1wRDFT5/";
+
+        let model, webcam, labelContainer, maxPredictions;
+
+        // Start Verification Process
+        function startVerification() {
+            document.getElementById("start-button").style.display = "none";
+            document.getElementById("webcam-container").style.display = "block";
+            document.getElementById("label-container").style.display = "block";
+            document.getElementById("verification-message").style.display = "none";
+            document.getElementById("snapshot-container").style.display = "none";
+            document.getElementById("restart-button").style.display = "none"; // Hide restart button
+            init();
+        }
+
+        // Load the model and initialize webcam
+        async function init() {
+            const modelURL = URL + "model.json";
+            const metadataURL = URL + "metadata.json";
+
+            model = await tmImage.load(modelURL, metadataURL);
+            maxPredictions = model.getTotalClasses();
+
+            const flip = true;
+            webcam = new tmImage.Webcam(300, 300, flip);
+            await webcam.setup();
+            await webcam.play();
+            window.requestAnimationFrame(loop);
+
+            document.getElementById("webcam-container").appendChild(webcam.canvas);
+            labelContainer = document.getElementById("label-container");
+            for (let i = 0; i < maxPredictions; i++) {
+                labelContainer.appendChild(document.createElement("div"));
+            }
+
+            // Set a timer to capture photo after 5 seconds
+            setTimeout(captureAndVerify, 5000); // 5000 milliseconds = 5 seconds
+        }
+
+        async function loop() {
+            webcam.update();
+            window.requestAnimationFrame(loop);
+        }
+
+        async function captureAndVerify() {
+            const prediction = await model.predict(webcam.canvas);
+            let highestProb = 0;
+            let userName = "";
+            const classMembers = ["Harsh", "Vignesh"]; // Valid members
+
+            for (let i = 0; i < maxPredictions; i++) {
+                const probability = prediction[i].probability.toFixed(2);
+                const className = prediction[i].className;
+                labelContainer.childNodes[i].innerHTML = `${className}: ${probability}`;
+
+                if (prediction[i].probability > highestProb) {
+                    highestProb = prediction[i].probability;
+                    userName = className;
+                }
+            }
+
+            // Capture snapshot
+            const snapshotCanvas = document.getElementById("snapshot");
+            const snapshotContext = snapshotCanvas.getContext("2d");
+            snapshotCanvas.width = webcam.canvas.width;
+            snapshotCanvas.height = webcam.canvas.height;
+            snapshotContext.drawImage(webcam.canvas, 0, 0);
+
+            const snapshotMessage = document.getElementById("snapshot-message");
+            const messageElement = document.getElementById("verification-message");
+
+            if (highestProb > 0.85 && classMembers.includes(userName)) {
+                // Valid user
+                messageElement.style.display = "block";
+                messageElement.style.color = "#4caf50";
+                messageElement.innerText = `Welcome, ${userName}!`;
+                snapshotMessage.innerText = `Snapshot of ${userName}`;
+                document.getElementById("restart-button").style.display = "block"; // Show restart button
+            } else {
+                // Invalid user
+                messageElement.style.display = "block";
+                messageElement.style.color = "#f44336";
+                messageElement.innerText = "You are not a member of the class.";
+                snapshotMessage.innerText = "Snapshot of an unverified person.";
+                document.getElementById("restart-button").style.display = "block"; // Show restart button
+            }
+
+            document.getElementById("snapshot-container").style.display = "block";
+        }
+
+        function resetPage() {
+            webcam.stop();
+            document.getElementById("webcam-container").innerHTML = "";
+            document.getElementById("label-container").innerHTML = "";
+            document.getElementById("webcam-container").style.display = "none";
+            document.getElementById("label-container").style.display = "none";
+            document.getElementById("start-button").style.display = "block"; // Show start button again
+            document.getElementById("restart-button").style.display = "none"; // Hide restart button
+        }
+    </script>
+</body>
+</html>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #f4f4f9;
+    color: #333;
+}
+
+header {
+    text-align: center;
+    padding: 20px;
+    background: #6200ea;
+    color: white;
+    width: 100%;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2rem;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+#start-button,
+#restart-button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    background: #03dac5;
+    border: none;
+    color: white;
+    cursor: pointer;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+#start-button:hover,
+#restart-button:hover {
+    background: #018786;
+}
+
+#webcam-container {
+    margin: 20px 0;
+}
+
+#label-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+footer {
+    margin-top: auto;
+    padding: 10px;
+    background: #333;
+    color: white;
+    text-align: center;
+    width: 100%;
+}
+
+#verification-message {
+    font-weight: bold;
+}
+
+#snapshot-container {
+    text-align: center;
+}
+
+#snapshot {
+    margin-top: 10px;
+}
+</style>
