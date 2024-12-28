@@ -146,7 +146,7 @@
             const prediction = await model.predict(webcam.canvas);
             let highestProb = 0;
             let userName = "";
-            const classMembers = ["Harsh", "Vignesh"]; // Valid members
+            const classMembers = ["Harsh", "Vignesh","Satyam","Vrushangi"]; // Valid members
 
             for (let i = 0; i < maxPredictions; i++) {
                 const probability = prediction[i].probability.toFixed(2);
