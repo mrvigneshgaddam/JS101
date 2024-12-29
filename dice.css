@@ -39,6 +39,13 @@ body {
     margin-bottom: 1rem;
 }
 
+.reset {
+    margin-top: 20px;
+    color: #ffffff;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
 button {
     background-color: #007BFF;
     color: white;

@@ -13,7 +13,9 @@ function more() {
 }
 
 function less() {
-    count -= 1;
+    if(count >0) {
+        count -= 1;
+    }
     updateDisplay();  
 }
 

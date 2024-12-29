@@ -17,9 +17,20 @@ function calculateWinner() {
         winnerText = "Player 1 is the Winner!";
     } else if (num1 < num2) {
         winnerText = "Player 2 is the Winner!";
-    } else {
+    } 
+    else if(num1==0 && num2==0){
+        winnerText = "Please role the dice First!";
+    }
+    else {
         winnerText = "It's a Draw!";
     }
     document.getElementById("winner").textContent = winnerText;
 }
-123
+
+
+function reset() {
+    num1 = 0;
+    num2 = 0;
+    document.getElementById("number1").textContent = "Dice: 0";
+    document.getElementById("number2").textContent = "Dice: 0";
+}
